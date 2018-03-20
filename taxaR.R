@@ -37,14 +37,23 @@ taxon_rank(name = 'species', database = 'ncbi')
 
 # Add below how to call "name = 'species' to the Barcode of Life database.
 
+taxon_rank(name = 'species', database = 'bold')
 
 # The taxon class combines the classes containing the name, rank, and ID for the taxon. 
 
-x <- taxon(
+(x <- taxon(
   name = taxon_name('Poa annua'),
   rank = taxon_rank('species'),
   id = taxon_id(93036),
-  authority = 'Linnaeus')
+  authority = 'Linnaeus'
+))
+
+(x <- taxon(
+  name = 'Poa annua',
+  rank = 'species',
+  id = 93036,
+  authority = 'Linnaeus'
+))
 
 # ^ What did I forget here? Add it in.
 
@@ -69,7 +78,7 @@ z <- taxon(
   id = taxon_id(93036)
 )
 
-( <- hierarchy(z, y, x)) # Edit this.
+(poaHier <- hierarchy(z, y, x)) # Edit this.
 
 # Multiple hierarchy classes are stored in the hierarchies class.
 
@@ -94,6 +103,7 @@ c <- taxon(
 
 # Call both recently created hierarchies with the following format: hierarchies(hier1, hier2). Type below:
 
+hierarchies(poaHier, pumaHier)
 
 # The taxonomy class stores unique taxon objects in a tree structure. 
 # Usually this kind of complex information would be the output of a file parsing function, 
@@ -114,7 +124,7 @@ lycopersicum <- taxon(name = "lycopersicum", rank = "species", id = 49274)
 tiger <- hierarchy(mammalia, felidae, panthera, tigris)
 cat <- hierarchy(mammalia, felidae, felis, catus)
 # Define the tomato hierarchy below:
-
+tomato <- hierarchy(plantae, solanaceae, solanum, lycopersicum)
 
 tax <- taxonomy(tiger, cat, tomato) # <- Note that you have to define tomato to get this to work.
 
@@ -135,6 +145,6 @@ span(pumaHier, ranks(">= genus"))
 
 # Now, because you all may issue identical pull requests, here is a unique simple edit you can make:
 
-class.list <- as.list(c('lindsay')) # Add your name, and I can accept and merge these unique additions.
+class.list <- as.list(c('evan')) # Add your name, and I can accept and merge these unique additions.
 
 ## Return to worksheet 9.
