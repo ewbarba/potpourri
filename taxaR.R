@@ -145,6 +145,6 @@ span(pumaHier, ranks(">= genus"))
 
 # Now, because you all may issue identical pull requests, here is a unique simple edit you can make:
 
-class.list <- as.list(c('evan')) # Add your name, and I can accept and merge these unique additions.
+class.list <- as.list(c('evan_pull_from_command_line')) # Add your name, and I can accept and merge these unique additions.
 
 ## Return to worksheet 9.
