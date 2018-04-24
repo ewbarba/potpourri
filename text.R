@@ -265,7 +265,7 @@ hnl / dminutes(2)  # How many minutes in the second half of the visit?
 # NetCDF = Network Common Data Form
 # Do you ever use NOAA or UCAR data? You need to know how to examine a NetCDF file.
  
-nc = nc_open('yourpathway/file.nc')  # Hint: Style tip #8
+nc = nc_open('./ROMSsurface.nc')  # Hint: Style tip #8
 str(nc)  # Examine nc file structure
 # Okay, we see there are 4 dimensions (labeled: $ dimid: int [1:4(1d)] 0 1 2 3)
 # There are other variables here too- coordinate info, units, variable of interest, units...
@@ -282,7 +282,7 @@ v1$dim[[4]]  # Here's time.
 dates<-as.POSIXlt(v1$dim[[4]]$vals, origin = "1970-01-01", tz = "UTC") # Hint: Style tip #5 
 dates  # Verify the date
 
-dat <- ncvar_get(nc; v1) # Hint: Style tip #9
+dat <- ncvar_get(nc, v1) # Hint: Style tip #9
 dim(dat)
 # 139 rows (lon) and 38 col (lat)
 lon <- v1$dim[[1]]$vals # dim[[1]] is lon, verified above with v1$dim[[1]] 
